@@ -8,6 +8,7 @@ If it was a large collection, I would remove hashset that stores dupes, and inst
 <h2>Script to create MSSQL table</h2>
 
 CREATE DATABASE CrewRedDb;
+
 USE CrewRedDb;
 
 CREATE TABLE Trips (
