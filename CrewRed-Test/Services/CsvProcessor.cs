@@ -54,7 +54,7 @@ namespace CrewRed_Test.Services
                 if (string.IsNullOrWhiteSpace(line))
                     continue;
 
-                var values = line.Split('\t');
+                var values = line.Split(['\t', ',']);
 
                 if (values.Length != headerMap.Count)
                     continue; 
@@ -71,7 +71,7 @@ namespace CrewRed_Test.Services
 
         private static Dictionary<string, int> BuildHeaderMap(string headerLine)
         {
-            var headers = headerLine.Split('\t');
+            var headers = headerLine.Split(['\t', ',']);
 
             var map = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
 

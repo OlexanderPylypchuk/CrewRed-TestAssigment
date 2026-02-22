@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CrewRed_Test.Services
 {
-    public class DuplicateTracker
+    public class DuplicateTracker : IDisposable
     {
         private readonly HashSet<string> _keys = new();
         private readonly StreamWriter _duplicateWriter;
@@ -29,6 +29,12 @@ namespace CrewRed_Test.Services
 
             _keys.Add(key);
             return false;
+        }
+
+        public void Dispose()
+        {
+            _duplicateWriter?.Flush();
+            _duplicateWriter?.Dispose();
         }
     }
 }
